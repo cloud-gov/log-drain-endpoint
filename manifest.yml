@@ -1,0 +1,11 @@
+---
+applications:
+- name: log-drain-endpoint	
+  disk_quota: 512M
+  memory: 758M
+  instances: 1
+  path: build/libs/log-drain-endpoint.jar
+  buildpacks:
+    - java_buildpack
+  services:
+    - log-drain-endpoint-db
