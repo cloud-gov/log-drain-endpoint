@@ -1,12 +1,10 @@
 # log-drain-endpoint
 
-An https log drain endpoint used in testing log capture. This is intended to be a short lived project to measure log duplication and/or loss during the v13 cf-deployment upgrade. 
+An https log drain endpoint used in testing log capture. This is intended to be a short lived project to measure log duplication and/or loss during the v13 cf-deployment upgrade. This **only** captures and stores logs emitted by the [Log Spammer](https://github.com/cloud-gov/log-spammer).
 
 See:
 - https://github.com/cloud-gov/cg-deploy-cf/issues/491
 - https://github.com/cloud-gov/cg-deploy-cf/issues/487
-
-
 
 ## Test
 

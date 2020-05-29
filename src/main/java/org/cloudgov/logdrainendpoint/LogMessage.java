@@ -3,7 +3,6 @@ package org.cloudgov.logdrainendpoint;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 
 import lombok.Data;
 import lombok.Getter;
@@ -22,14 +21,16 @@ public class LogMessage {
 	@GeneratedValue
 	private Long id;
 	
-	@Lob
+	private long messageNumber;
+
 	@NonNull
-  private String message;
+	private String appInstanceGuid;
 
 	protected LogMessage() {}
 
-	public LogMessage(String message) {
-		this.message = message;
+	public LogMessage(long messageNumber, String appInstanceGuid) {
+		this.messageNumber = messageNumber;
+		this.appInstanceGuid = appInstanceGuid;
 	}
 
 }
