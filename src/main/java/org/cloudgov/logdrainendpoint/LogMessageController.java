@@ -19,6 +19,7 @@ public class LogMessageController {
 
 	@PostMapping("/")
 	public ResponseEntity<String> log(@RequestBody final String body) throws Exception {
+		System.out.println("BODY: " + body);
 		addMessage(body);
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
