@@ -33,11 +33,17 @@ cf push
 ### Missing Logs
 
 ```
-select message_number + 1 as first_missing, (next_nc - 1) as last_missing, app_instance_guid
-from (select log_message.*, lead(message_number) over (partition by app_instance_guid order by message_number) as next_nc
-      from log_message
-     ) log_message
-where next_nc <> message_number + 1
+
+SELECT  message_number + 1
+FROM    log_message lm
+WHERE   NOT EXISTS
+        (
+        SELECT  NULL
+        FROM    log_message lmi 
+        WHERE   lmi.id = lm.id + 1
+        )
+ORDER BY
+        id
 ```
 
 ### Duplicate Logs
